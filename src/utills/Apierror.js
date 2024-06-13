@@ -26,7 +26,7 @@ class ErrorApi extends Error{
         
     }
 
-export default ErrorApi;
+export  {ErrorApi};
      
 
     

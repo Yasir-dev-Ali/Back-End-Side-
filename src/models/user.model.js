@@ -1,6 +1,7 @@
-import mongoose from "mongoose"
+import mongoose ,{Schema} from "mongoose"
 import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
+
 
 const userSchema = new mongoose.Schema({
     name: { 
@@ -23,6 +24,10 @@ const userSchema = new mongoose.Schema({
         type: String, 
         required: true 
     },  
+    refreshToken:{
+        type:String
+
+    },
     role: { 
         type: String, 
         default: "user" 
@@ -36,17 +41,13 @@ const userSchema = new mongoose.Schema({
         type: String ,
 
     },
-    watchHistroy:{
-        type: Schema.type.objectId,
-        ref:"vedio"
+    // watchHistroy:{
+    //     type: Schema.type.ObjectId,
+    //     ref:"Movie" 
 
 
-    },
-    watchList:{
-        type: Schema.type.objectId,
-        ref:"Movie"
-
-    },
+    // },
+   
 }, {
     timestamps: true
 });
@@ -77,4 +78,4 @@ userSchema.methods.generateRefreshToken= async function (){
 
 }
 const User = mongoose.model("User", userSchema)
-export default User
+export  {User};

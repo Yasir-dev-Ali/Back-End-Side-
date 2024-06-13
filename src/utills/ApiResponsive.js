@@ -7,3 +7,5 @@ class ApiResponsive extends Error{
         this.sucess=statsCode<400
     }
 }
+
+export {ApiResponsive}
